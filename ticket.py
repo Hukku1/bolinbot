@@ -43,14 +43,14 @@ class TicketManager(commands.Cog):
         if channel:
             embed = discord.Embed(
                 title="Bem-vindo ao Suporte da Rede Bolin!",
-                description="Para solicitar assistência, clique no tópico que melhor descreve sua situação abaixo. Após abrir o atendimento, aguarde a resposta de um membro da equipe de suporte. Faremos o possível para atender sua solicitação o mais rápido possível!\n\n**🔧 Horários de Atendimento:**\nSegunda a Sexta-feira, das 13h às 21h (Horário de Brasília)",
+                description="Para solicitar assistência, clique no tópico que melhor descreve sua situação abaixo. Após abrir o atendimento, aguarde a resposta de um membro da equipe de suporte\n\n**🔧 Horários de Atendimento:**\nSegunda a Sexta-feira, das 13h às 21h (Horário de Brasília)",
                 color=discord.Color.blue(),
                 timestamp=datetime.now()
             )
             embed.set_thumbnail(url="https://images-ext-1.discordapp.net/external/8Qfksp8qYCewfxovCI32O24-AC2DecRzEGg1bd2LzLk/https/cdn.discordapp.com/icons/1234140028028981318/fc0bb733b5d6e996688ec15f3af37c48.png?format=webp&quality=lossless")
             embed.set_footer(text="Rede Bolin",icon_url="https://images-ext-1.discordapp.net/external/8Qfksp8qYCewfxovCI32O24-AC2DecRzEGg1bd2LzLk/https/cdn.discordapp.com/icons/1234140028028981318/fc0bb733b5d6e996688ec15f3af37c48.png?format=webp&quality=lossless")
             # Define buttons for each category
-            categories = ["Geral", "Reportes", "Punições", "Parcerias"]
+            categories = ["Miscelânea", "Reportes", "Punições", "Cargos"]
             view = discord.ui.View(timeout=None)
             for category in categories:
                 button = discord.ui.Button(label=category, style=discord.ButtonStyle.green)
@@ -67,7 +67,7 @@ class TicketManager(commands.Cog):
             try:
                 message = await channel.fetch_message(self.ticket_message_id)
                 view = discord.ui.View(timeout=None)
-                categories = ["Geral", "Reportes", "Punições", "Parcerias"]
+                categories = ["Miscelânea", "Reportes", "Punições", "Cargos"]
                 for category in categories:
                     button = discord.ui.Button(label=category, style=discord.ButtonStyle.green)
                     button.callback = self.make_button_callback(category)
@@ -100,7 +100,7 @@ class TicketManager(commands.Cog):
             color=discord.Color.green(),
         )
         embed.set_thumbnail(url="https://images-ext-1.discordapp.net/external/8Qfksp8qYCewfxovCI32O24-AC2DecRzEGg1bd2LzLk/https/cdn.discordapp.com/icons/1234140028028981318/fc0bb733b5d6e996688ec15f3af37c48.png?format=webp&quality=lossless")
-        embed.set_footer(text="⛔ Para fechar o ticket, suportes, usem `!close`", icon_url="https://images-ext-1.discordapp.net/external/8Qfksp8qYCewfxovCI32O24-AC2DecRzEGg1bd2LzLk/https/cdn.discordapp.com/icons/1234140028028981318/fc0bb733b5d6e996688ec15f3af37c48.png?format=webp&quality=lossless")
+        embed.set_footer(text="✅ Para finalizar o atendimento, staffs, usem `!close`", icon_url="https://images-ext-1.discordapp.net/external/8Qfksp8qYCewfxovCI32O24-AC2DecRzEGg1bd2LzLk/https/cdn.discordapp.com/icons/1234140028028981318/fc0bb733b5d6e996688ec15f3af37c48.png?format=webp&quality=lossless")
         await channel.send(content="@here", embed=embed)
 def setup(bot):
     bot.add_cog(TicketManager(bot))
