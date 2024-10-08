@@ -225,7 +225,7 @@ async def debug_command(ctx):
 @bot.command()
 async def ip(ctx):
     embed = discord.Embed(
-        description="💻 IP do servidor para **JAVA:** `redebolin.com.br`\n📱 IP do servidor para **BEDROCK:** `mobile.redebolin.com.br` **Porta:** `19259`\n\n**Versão Java:** 1.16, 1.18, 1.19 e 1.21.X. \n**Versão Bedrock:** 1.20.50",
+        description="🔢 IP do servidor para **JAVA:** `redebolin.com.br`\n🔢 IP do servidor para **BEDROCK:** `mobile.redebolin.com.br` **Porta:** `19259`\n\n**Versão Java:** 1.16, 1.18, 1.19 e 1.21.X. \n**Versão Bedrock:** 1.20.50",
         colour=0x7b2d2d
     )
     await ctx.send(embed=embed)
